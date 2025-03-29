@@ -1,0 +1,14 @@
+YarnID, PatternType, Pattern, Gauge, Stitches, Rows, Width, Height,
+1, Stockinette, , 3, 12, 12, 3.3, 2
+1, Stockinette, , 5, 30, 51, 9, 9.5
+1, Stockinette, , 8, 10, 14, 3.6, 4
+1, Ribbing, "xo", 2, 32, 17, 9, 2.6
+2, Stockinette, , 3, 23, 29, 6, 5
+2, Stockinette, , 5, 27, 28, 7.8, 5.75
+2, Ribbing, "xo", 0, 26, 17, 8.1, 2.25
+3, Stockinette, , 5, 20, 30, 6, 5.9
+4, Stockinette, , 8, 17, 30, 5.5, 7
+6, Stockinette, , 
+6, Ribbing, "xo", 10, 19, 25, 8, 7
+6, Ribbing, "xo", 
+7, Stockinette, , 5 mm, 19, 25.5, 11, 10

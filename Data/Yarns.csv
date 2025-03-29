@@ -1,0 +1,8 @@
+YarnID, ProducerID, Name, Materials, YarnGroup, RecommendedNeedle, RecommendedHook,
+1, 1, Baby Merino, "[(100, Wool)]", A, 3, 
+2, 2, None, "[(100, Wool)]", A, 3, 
+3, 3, Super Fine Merino, "[(100, Wool)]", A, , 
+4, 4, Cotton 8/4, "[(100, Cotton)]", A, 3, 
+5, 5, Oulu, "[(72, Superkid Mohair), (28, Mulberry silk)]", A, 3, 
+6, 1, Cotton Light, "[(50, Cotton), (50, Polyester)]", B, 3, 
+7, 4, Cotton 8/8, "[(100, Cotton)]", B, 3.5, 3.5
