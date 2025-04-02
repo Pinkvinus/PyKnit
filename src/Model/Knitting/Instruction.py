@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import List
 
 class Instruction(ABC):
     num_rows = 0
@@ -14,6 +13,10 @@ class Instruction(ABC):
                 end_stitches   - The number of stitches at the end of the section 
                 order          - When an increase or decrease happens 
         """
+
+        if num_rows < 0 or start_stitches < 0 or end_stitches < 0 :
+            raise ValueError("Instruction can't be initialised with negative values")
+
         self.num_rows = num_rows
         self.start_stitches = start_stitches
         self.end_stitches = end_stitches
@@ -26,7 +29,7 @@ class Instruction(ABC):
         pass
 
     @abstractmethod
-    def get_instructions(self) -> List[str]:
+    def get_instructions(self) -> list[str]:
         pass
 
 
@@ -46,7 +49,7 @@ class ShapingInstruction(Instruction):
         return super().__str__() + f" Order: {self.order}, Advanced instructions: {self.advanced_instructions}"
     
     def print(self):
-
-        
-        
-
+        ...
+    
+    def get_instructions(self) -> list[str]:
+        ...
