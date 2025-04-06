@@ -6,7 +6,7 @@ import pytest
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
 sys.path.insert(0, project_root)  # Add the root directory to sys.path
 
-from src.Model.Knitting import Instruction as ins
+from Model.Knitting.Instructions import Instruction as ins
 
 
 def test_instruction_init_positive_values():
