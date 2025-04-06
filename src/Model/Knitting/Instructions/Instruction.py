@@ -5,10 +5,11 @@ class Instruction(ABC):
     def __init__(self, num_rows:int, start_stitches:int, end_stitches:int):
         """
             Params:
-                num_rows       - The change in number of rows for the section
-                start_stitches - The number of stitches at the start of the section
-                end_stitches   - The number of stitches at the end of the section 
-                order          - When an increase or decrease happens 
+
+                - num_rows       : The change in number of rows for the section
+                - start_stitches : The number of stitches at the start of the section
+                - end_stitches   : The number of stitches at the end of the section 
+                - order          : When an increase or decrease happens 
         """
 
         if num_rows < 0 or start_stitches < 0 or end_stitches < 0 :
