@@ -1,13 +1,20 @@
 from abc import ABC, abstractmethod
+from src.Model.Measurements.Measurement import Measurement
+from src.Model.Knitting.Swatches.Swatch import Swatch
+from src.Model.Knitting.Instructions.
 
 class Pattern(ABC): 
-    # An abstract class for a 
+    # An abstract class for a knitting pattern
 
-    instructions = []
+    def __init__(self, swatch:Swatch, measurements:list[Measurement]):
+        self.swatch = swatch
+        self.measurements = measurements
 
     @abstractmethod
-    def __init__(self, Yarn, ):
-        instructions = 
+    def get_instructions() -> list[str]:
+        """
+            Returns
 
-
-    def 
+                - list[str] : A list of the several steps needed to create a garment
+        """
+        pass
