@@ -25,7 +25,7 @@ class Instruction(ABC):
         return f"Number of rows: {self.num_rows}, initial number of stitches: {self.start_stitches}, Terminal number of stitches: {self.end_stitches}"
 
     @abstractmethod
-    def get_instructions_list(self) -> tuple[list[str], int]:
+    def get_instructions(self) -> tuple[list[str], int]:
         """
             This method should return a tuple of a list of strings and an integer
             containing the information on how to perform the instructions
