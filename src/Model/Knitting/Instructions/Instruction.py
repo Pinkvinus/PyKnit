@@ -1,9 +1,6 @@
 from abc import ABC, abstractmethod
 
 class Instruction(ABC):
-    num_rows = 0
-    start_stitches = 0
-    end_stitches = 0
 
     def __init__(self, num_rows:int, start_stitches:int, end_stitches:int):
         """
@@ -31,6 +28,7 @@ class Instruction(ABC):
             containing the information on how to perform the instructions
 
             Returns:
+            
                 - list[str] : A list of textual instructions
                 - ins       : The actual number of stitches at the end
         """

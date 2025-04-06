@@ -1,6 +1,6 @@
 import math
 from enum import Enum
-from Instruction import Instruction
+from src.Model.Knitting.Instructions.Instruction import Instruction
 
 class ShapingType(Enum):
     INCREASE = 1
@@ -10,11 +10,6 @@ class ShapingInstruction(Instruction):
     """
         An instruction covering increase or decrease instructions
     """
-    order = 1
-    advanced_instructions = ""
-    type = ShapingType.DECREASE
-
-
     def __init__(self, num_rows, start_stitches, end_stitches, order:int, advanced_instructions):
         super().__init__(num_rows, start_stitches, end_stitches)
         if order < 1:
@@ -24,6 +19,8 @@ class ShapingInstruction(Instruction):
 
         if start_stitches < end_stitches:
             self.type = ShapingType.INCREASE
+        else:
+            self.type = ShapingType.DECREASE
 
 
     def __str__(self):
