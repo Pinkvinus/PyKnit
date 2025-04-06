@@ -8,7 +8,10 @@ class Swatch(ABC):
     SWATCHES_FILE = Path("../../../Data/Swatches.csv")
 
     def __init__(self, yarnid:int, pattern_type:str, gauge:str, stitches:int, rows:int, width:float, height:float):
+        if yarnid < 0:
+            raise ValueError("Swatch: yarnid has to be a non-negative number")
         self.yarnid = yarnid
+
         self.pattern_type = pattern_type
         self.gauge = gauge
 
@@ -21,7 +24,7 @@ class Swatch(ABC):
         self.rows = rows
 
         if width <= 0:
-            raise ValueError("Swatch: Stitches has to be a positive number")
+            raise ValueError("Swatch: Width has to be a positive number")
         self.width = width
 
         if height <= 0:
