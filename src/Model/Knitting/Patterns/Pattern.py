@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from src.Model.Measurements.Measurement import Measurement
 from src.Model.Knitting.Swatches.Swatch import Swatch
-from src.Model.Knitting.Instructions.
 
 class Pattern(ABC): 
     # An abstract class for a knitting pattern
