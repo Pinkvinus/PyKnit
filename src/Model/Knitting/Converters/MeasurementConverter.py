@@ -33,4 +33,6 @@ class MeasurementConverter():
                 - The number of rows that will create the same dimensions
         """
         return round(self.rows_pr_cm * self.measurement[m])
-        
+    
+    def measurement_to_rows(self, m:int) -> int :
+        return round(self.rows_pr_cm * m)

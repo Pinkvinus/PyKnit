@@ -28,6 +28,11 @@ class ShapingInstruction(Instruction):
     
     def get_instructions(self) -> tuple[list[str], int]:
 
+        if self.start_stitches == self.end_stitches:
+            ins = "Start and terminal number of stitches are the same."
+            ins2 = f"continue knitting for {self.num_rows} rows"
+            return ([ins, ins2], self.end_stitches)
+
         instructions = []
 
         shaping_rows = self.distribute_shaping(self.num_rows, self.start_stitches//self.order, self.end_stitches//self.order)
@@ -40,6 +45,7 @@ class ShapingInstruction(Instruction):
         instructions.append(intro)
         instructions.append(overall_steps)
         instructions.append(shaping_steps)
+        instructions.append(self.advanced_instructions)
 
         warning_ins, actual_end_stitches = self.warning_instructions(shaping_rows)
 

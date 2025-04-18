@@ -31,11 +31,11 @@ class Swatch(ABC):
             raise ValueError("Swatch: Height has to be a positive number")
         self.height = height
     
-    def get_stitches_per_cm(self):
-        return self.stitches // self.width
+    def get_stitches_per_cm(self) -> float:
+        return self.stitches / self.width
     
-    def get_rows_per_cm(self):
-        return self.rows // self.height
+    def get_rows_per_cm(self) -> float:
+        return self.rows / self.height
     
     def save(self):
         with open(self.SWATCHES_FILE, mode='a', newline='') as file:

@@ -59,12 +59,5 @@ class RibbingInstruction(Instruction):
         if abs(A - lower) <= abs(A - upper):
             return lower
         return upper
-        
-
-r = RibbingInstruction(20, 157)
-
-print(r.get_instructions())
-
-
 
 

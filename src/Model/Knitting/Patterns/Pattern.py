@@ -5,7 +5,7 @@ from src.Model.Knitting.Swatches.Swatch import Swatch
 class Pattern(ABC): 
     # An abstract class for a knitting pattern
 
-    def __init__(self, swatch:Swatch, measurements:list[Measurement]):
+    def __init__(self, swatch:Swatch, measurements:dict, ease:float):
         self.swatch = swatch
         self.measurements = measurements
 
