@@ -34,5 +34,8 @@ class MeasurementConverter():
         """
         return round(self.rows_pr_cm * self.measurement[m])
     
-    def measurement_to_rows(self, m:int) -> int :
+    def measurement_to_rows(self, m:int | float) -> int :
         return round(self.rows_pr_cm * m)
+    
+    def measurement_to_stitches(self, m:int | float) -> int:
+        return round(self.stitches_per_cm * m)

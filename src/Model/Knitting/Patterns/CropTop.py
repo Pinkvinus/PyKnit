@@ -6,7 +6,7 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..
 sys.path.insert(0, project_root)  # Add the root directory to sys.path
 
 from src.Model.Knitting.Patterns.Pattern import Pattern
-from src.Model.Knitting.Instructions.CastOnInstruction import CastOnInstruction
+from src.Model.Knitting.Instructions.CastOn.CastOnInstruction import CastOnInstruction
 from src.Model.Knitting.Instructions.RibbingInstruction import RibbingInstruction
 from src.Model.Knitting.Instructions.ShapingInstruction import ShapingInstruction
 from src.Model.Knitting.Converters.MeasurementConverter import MeasurementConverter
@@ -39,8 +39,45 @@ class CropTop(Pattern):
         overbust = converter.get_stitches('overbust')
         shaping_overbust = ShapingInstruction(bust_to_overbust, shaping_bust[1], overbust, 2, '').get_instructions()
 
+        ins3 = "Now well start sleeves."
+        bicep = converter.get_stitches('bicep')
+        sleeve_length = 6
+        ribbing_sleeve = RibbingInstruction(ribbing_rows, bicep).get_instructions()
 
-        return [caston, ins1, ribbing, shaping_bust, shaping_overbust]
+        sleeve_knitting_len = converter.measurement_to_rows(sleeve_length - self.ribbing)
+        shaping_sleeve = ShapingInstruction(sleeve_knitting_len, ribbing_sleeve[1], ribbing_sleeve[1], 1, "").get_instructions()
+
+
+        ins4 = "Now we start putting the pieces together."
+        yoke = converter.get_stitches('armscye circumference')
+
+        current_stitches = shaping_sleeve[1]*2 + shaping_overbust[1]
+        castoff_armhole_size = (current_stitches - yoke)//4
+
+
+
+        front_stitches =  round(shaping_overbust[1]/2 - converter.measurement_to_stitches(2)*2)
+
+        ins5 = f"you will need to find 2 \"halfes\" of the body. The first half should have {front_stitches} stitches and the other should have {shaping_overbust[1]-front_stitches}."
+        ins6 = f"Around these middle stitches you should cast off {castoff_armhole_size} stitches. When casting off knit the sleeve and the body together"
+
+        neck_stitches = converter.get_stitches('neck circumference')
+        overbust_to_neck = converter.get_rows('bust to neck') - converter.get_rows('bust to overbust')
+
+        neck_shaping = ShapingInstruction(overbust_to_neck, yoke, neck_stitches, 8, '').get_instructions()
+
+        return [caston, 
+                ins1, 
+                ribbing, 
+                shaping_bust, 
+                shaping_overbust, 
+                ins3, 
+                ribbing_sleeve, 
+                shaping_sleeve, 
+                ins4,
+                ins5,
+                ins6,
+                neck_shaping]
 
 
 
@@ -54,7 +91,11 @@ measurement = {
     "waist to underbust" : 16,
     "underbust to bust" : 7,
     "waist to bust" :20 - 1.5,
-    "bust to overbust" : 7
+    "bust to overbust" : 7,
+    "bicep" : 35*ease,
+    "armscye circumference" : 119*ease,
+    "bust to neck" : 18,
+    "neck circumference" :60
 }
 
 #This swatch has a stretch of 150%
