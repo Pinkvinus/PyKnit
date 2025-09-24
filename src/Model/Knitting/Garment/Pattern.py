@@ -8,6 +8,7 @@ class Pattern(ABC):
     def __init__(self, swatch:Swatch, measurements:dict, ease:float):
         self.swatch = swatch
         self.measurements = measurements
+        self.ease = ease
 
     @abstractmethod
     def get_instructions() -> list[str]:

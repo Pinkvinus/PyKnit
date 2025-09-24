@@ -1,7 +1,7 @@
 from src.Model.Knitting.Instructions.CastOn.CastOnInstruction import CastOnInstruction
-from src.Model.Knitting.Instructions.RibbingInstruction import RibbingInstruction
+from src.Model.Knitting.Instructions.PatternInstruction import PatternInstruction
 
-class PatternOnInstruction(CastOnInstruction, RibbingInstruction):
+class PatternOnInstruction(CastOnInstruction, PatternInstruction):
     def __init__(self, stitches):
         super().__init__(1, 0, stitches)
 
@@ -10,9 +10,6 @@ class PatternOnInstruction(CastOnInstruction, RibbingInstruction):
 
         if self.start_stitches % len(self.pattern) != 0:
             self.start_stitches = self.nearest_multiple(self.start_stitches, len(self.pattern))
-        
-        
-
         
 
         ins = f"Cast on {self.end_stitches} stitches."

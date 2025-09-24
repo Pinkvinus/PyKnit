@@ -27,3 +27,9 @@ class Swatch(ABC):
 
     def save(self):
         pass #TODO
+
+    def measurement_to_st(self, val:float) -> int:
+        return round(val * self.st_pr_cm)
+    
+    def measurement_to_row(self, val:float) -> int:
+        return round(val * self.r_pr_cm)
